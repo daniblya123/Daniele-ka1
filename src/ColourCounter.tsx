@@ -8,24 +8,28 @@ function ColourCounter(){
     const [counterBlue,setCounterBlue] = useState(1)
     const [text, setText] = useState("Red was pressed same amount of times as Blue")
 
-    const handleButtonsClick = (buttonName : String) =>
+    const handleButtonsClick = (buttonName : String, counter: number, counterBlue: number) =>
     {   
         if (buttonName == "Red button")
         {
         setCounter(counter + 1)
         setButtonNameRed(buttonName + " was pressed " + counter + " times")
-        }
+        if (counter +1 > counterBlue) {
+            setText("Red More")
+        }}
         else
         {
         setCounterBlue(counterBlue + 1)
         setButtonNameBlue(buttonName + " was pressed " + counterBlue + " times")
+        if (counter  < counterBlue+1) {
+            setText("Blue More")}
         }
         
     }
     
     
-    const redButton =  <button type="button" onClick = {() => handleButtonsClick("Red button")}>Red</button>
-    const blueButton =  <button type="button" onClick = {() => handleButtonsClick("Blue button")}>Blue</button>
+    const redButton =  <button type="button" onClick = {() => handleButtonsClick("Red button", counter,counterBlue)}>Red</button>
+    const blueButton =  <button type="button" onClick = {() => handleButtonsClick("Blue button", counter,counterBlue,)}>Blue</button>
     
     return(<>
         <div className="divBox">
