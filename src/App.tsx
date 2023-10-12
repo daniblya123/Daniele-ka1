@@ -1,9 +1,9 @@
 import { useState } from 'react'
-
+import PuppyImage from "./PuppyImage"
 
 function App() {
 
-  return (<p>Hello world!</p>)
+  return (<PuppyImage/>)
 }
 
 export default App
